@@ -1,133 +1,63 @@
-# Pronto BPO Project
+# Pronto BPO - Landing Page
 
-This is a React project built with TypeScript and Vite.
+Esta é a landing page oficial da **Pronto BPO**, uma empresa especializada em Business Process Outsourcing (BPO) financeiro e administrativo. O site foi projetado para converter visitantes em clientes, destacando a eficiência, segurança e o crescimento que a terceirização de processos pode trazer para pequenos e médios negócios.
 
-## Prerequisites
+## 🚀 Tecnologias Utilizadas
 
-Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- npm (usually comes with Node.js)
+- **React 18** com **TypeScript**
+- **Vite** (Build Tool)
+- **Tailwind CSS** (Estilização)
+- **Framer Motion** (Animações fluidas)
+- **Lucide React** (Ícones)
 
-## Getting Started
+## 📁 Estrutura de Seções
 
-Follow these steps to set up and run the project locally.
+A página está organizada nas seguintes seções:
 
-### 1. Installation
+1.  **Hero**: Impacto inicial com proposta de valor clara.
+2.  **Problem**: Identificação das dores do empreendedor (sobrecarga operacional).
+3.  **Solution**: Como a Pronto BPO resolve esses problemas.
+4.  **Detailed Services**: Detalhamento técnico do escopo (Financeiro, Administrativo, RH, Estratégico).
+5.  **Methodology**: Os 4 passos da nossa implementação (Diagnóstico, Setup, Execução, Dashboards).
+6.  **Offer (Planos)**: Apresentação dos pacotes Bronze, Prata e Ouro (sem exibição de preços internos).
+7.  **Video**: Demonstração visual ou institucional.
+8.  **About**: História e valores da empresa.
+9.  **Footer**: Informações de contato e links legais.
 
-Install the project dependencies:
+## 🛠️ Como Executar o Projeto
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (v16 ou superior)
+- npm ou yarn
+
+### Instalação
 
 ```bash
 npm install
 ```
 
-### 2. Development Server
+### Desenvolvimento
 
-Start the development server with hot-reload:
+Para rodar em modo de desenvolvimento com hot-reload:
 
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
+O site estará disponível em `http://localhost:5173`.
 
-### 3. Building for Production
+### Build para Produção
 
-To build the project for production:
+Para gerar a versão otimizada para deploy:
 
 ```bash
 npm run build
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+Os arquivos serão gerados na pasta `dist/`.
 
-### 4. Preview Production Build
+## 📄 Licença
 
-To preview the production build locally:
+Este projeto é de uso exclusivo da Pronto BPO.
 
-```bash
-npm run preview
-```
-
-## Project Structure
-
-- `src/`: Source code including components and styles.
-- `public/`: Static assets.
-- `index.html`: Main HTML entry point.
-- `vite.config.ts`: Vite configuration.
-- `package.json`: Project dependencies and scripts.
-
----
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```

@@ -12,7 +12,7 @@ export const OfferSection = () => {
                         viewport={{ once: true }}
                         className="text-sm font-bold tracking-wider text-secondary uppercase mb-3"
                     >
-                        Planos e Investimento
+                        Planos e Serviços
                     </motion.h2>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -37,35 +37,35 @@ export const OfferSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <PricingCard
                         title="Bronze"
-                        price="1.497"
-                        originalPrice="2.000"
                         features={[
-                            "Serviços financeiros essenciais",
+                            "BPO Financeiro Essencial",
+                            "Conciliação bancária diária",
+                            "Controle de contas a pagar/receber",
+                            "Emissão de Notas e Boletos",
                             "Atendimento via WhatsApp",
-                            "Reuniões agendadas",
                             "Primeiro mês GRÁTIS"
                         ]}
                     />
                     <PricingCard
                         title="Prata"
-                        price="2.497"
-                        originalPrice="3.000"
                         popular
                         features={[
-                            "Tudo do Bronze",
-                            "Serviços administrativo-processuais",
-                            "Sistema financeiro e precificação",
-                            "Primeiro mês GRÁTIS"
+                            "Tudo do plano Bronze",
+                            "Administrativo Processual",
+                            "Elaboração de contratos (PJ)",
+                            "Gestão de arquivos corporativos",
+                            "Mapeamento de processos",
+                            "Reuniões de alinhamento"
                         ]}
                     />
                     <PricingCard
                         title="Ouro"
-                        price="4.497"
-                        originalPrice="5.000"
                         features={[
-                            "Tudo do Prata",
-                            "Plano personalizado",
-                            "Demandas administrativas específicas",
+                            "Tudo do plano Prata",
+                            "Gestão de Pessoas (RH/NPS)",
+                            "Dashboard de KPIs em tempo real",
+                            "Interface com Contabilidade",
+                            "Análise de redução de custos",
                             "Suporte prioritário"
                         ]}
                     />
@@ -130,31 +130,23 @@ export const OfferSection = () => {
     );
 };
 
-const PricingCard = ({ title, price, originalPrice, features, popular = false }: { title: string, price: string, originalPrice: string, features: string[], popular?: boolean }) => (
+const PricingCard = ({ title, features, popular = false }: { title: string, features: string[], popular?: boolean }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className={`relative p-8 rounded-3xl border ${popular ? 'border-primary bg-white shadow-2xl scale-105 z-10' : 'border-slate-100 bg-white/50 shadow-lg'} transition-all`}
+        className={`relative p-8 rounded-3xl border ${popular ? 'border-primary bg-white shadow-2xl scale-105 z-10' : 'border-slate-100 bg-white/50 shadow-lg'} transition-all flex flex-col h-full`}
     >
         {popular && (
             <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase">
                 Mais Popular
             </span>
         )}
-        <h4 className="text-2xl font-bold text-main mb-2">{title}</h4>
-        <div className="mb-6">
-            <span className="text-sm text-muted line-through">R$ {originalPrice},00</span>
-            <div className="flex items-baseline gap-1">
-                <span className="text-sm font-bold text-main">R$</span>
-                <span className="text-4xl font-bold text-main">{price}</span>
-                <span className="text-sm text-muted">/mês</span>
-            </div>
-        </div>
-        <ul className="space-y-4 mb-6">
+        <h4 className="text-2xl font-bold text-main mb-6">{title}</h4>
+        <ul className="space-y-4 mb-8 flex-grow">
             {features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-muted text-sm text-left">
-                    <CheckCircle2 size={18} className="text-primary shrink-0" />
+                <li key={i} className="flex items-start gap-3 text-muted text-sm text-left">
+                    <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
                     <span>{feature}</span>
                 </li>
             ))}
