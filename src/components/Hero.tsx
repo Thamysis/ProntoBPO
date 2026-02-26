@@ -66,7 +66,7 @@ export const Hero = () => {
                         </svg>
                     </a>
                     <a
-                        href="#how-it-works"
+                        href="#methodology"
                         className="btn btn-secondary"
                     >
                         Conheça nossa metodologia

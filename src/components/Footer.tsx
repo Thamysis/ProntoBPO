@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import logoImg from '../assets/images/WithTextBackgroundGrey.svg';
 import { LegalModal } from './LegalModal'; // Ensure this matches file location
 
@@ -68,8 +68,6 @@ export const Footer = () => {
 
                     <div className="flex gap-6">
                         <SocialLink href="https://instagram.com/prontobpobr" icon={<Instagram size={20} />} />
-                        <SocialLink href="https://wa.me/5519987315837" icon={<Linkedin size={20} />} />
-                        <SocialLink href="mailto:prontobpo.br@gmail.com" icon={<Mail size={20} />} />
                     </div>
                 </div>
 

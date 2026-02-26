@@ -20,7 +20,7 @@ export const DetailedServicesSection = () => {
     return (
         <section id="detailed-services" className="section-padding bg-background">
             <div className="container">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

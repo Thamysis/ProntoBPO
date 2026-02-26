@@ -5,7 +5,7 @@ export const OfferSection = () => {
     return (
         <section id="offer" className="section-padding bg-background">
             <div className="container">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export const OfferSection = () => {
                     </motion.h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <PricingCard
                         title="Bronze"
                         price="1.497"
@@ -151,7 +151,7 @@ const PricingCard = ({ title, price, originalPrice, features, popular = false }:
                 <span className="text-sm text-muted">/mês</span>
             </div>
         </div>
-        <ul className="space-y-4 mb-8">
+        <ul className="space-y-4 mb-6">
             {features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-muted text-sm text-left">
                     <CheckCircle2 size={18} className="text-primary shrink-0" />
