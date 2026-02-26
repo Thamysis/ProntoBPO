@@ -76,7 +76,7 @@ const styles = {
     title: {
         fontSize: '1.5rem',
         fontWeight: 700,
-        color: '#1e293b',
+        color: '#484848',
         margin: 0,
     },
     closeButton: {
@@ -95,7 +95,7 @@ const styles = {
         padding: '2rem',
         overflowY: 'auto' as const,
         lineHeight: 1.6,
-        color: '#334155',
+        color: '#484848',
         fontSize: '1rem',
     }
 };

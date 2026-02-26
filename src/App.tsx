@@ -1,3 +1,6 @@
+import { AboutSection } from './components/AboutSection';
+import { VideoSection } from './components/VideoSection';
+import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
@@ -10,13 +13,16 @@ import { Footer } from './components/Footer';
 function App() {
   return (
     <div className="app">
+      <Navbar />
       <Hero />
       <ProblemSection />
       <SolutionSection />
+      <VideoSection />
       <ServicesSection />
       <DetailedServicesSection />
       <MethodologySection />
       <OfferSection />
+      <AboutSection />
       <Footer />
     </div>
   );

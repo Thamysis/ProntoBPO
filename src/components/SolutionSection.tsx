@@ -1,81 +1,61 @@
+import { motion } from 'framer-motion';
 import solutionImg from '../assets/images/solution.jpg';
 
 export const SolutionSection = () => {
     return (
-        <section id="solution" className="section-padding" style={{ backgroundColor: 'var(--color-surface)' }}>
+        <section id="solution" className="section-padding bg-white overflow-hidden">
             <div className="container">
-                <div style={styles.gridContainer}>
-                    <div style={styles.imageContainer}>
-                        <img
-                            src={solutionImg}
-                            alt="Equipe trabalhando em sintonia"
-                            style={styles.image}
-                        />
-                    </div>
-                    <div style={styles.content}>
-                        <h2 style={styles.heading}>A Solução</h2>
-                        <h3 style={styles.subHeading}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="relative"
+                    >
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                            <div className="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                            <img
+                                src={solutionImg}
+                                alt="Equipe trabalhando em sintonia"
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </div>
+                        {/* Decorative pattern */}
+                        <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl -z-10"></div>
+                        <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/10 rounded-full blur-2xl -z-10"></div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2 className="text-sm font-bold tracking-wider text-secondary uppercase mb-3">
+                            A Solução
+                        </h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-main mb-6 leading-tight">
                             Assumimos a rotina. <br />
                             <span className="text-primary">Devolvemos a liberdade.</span>
                         </h3>
 
-                        <p style={styles.text}>
-                            A Pronto B.P.O nasceu da experiência real com o sistema Indicador.app.
-                            Percebemos que os donos de empresa queriam delegar as tarefas internas, mas não sabiam como.
-                        </p>
-                        <p style={styles.text}>
-                            Nós somos a ponte. Assumimos toda a sua rotina administrativa e financeira de forma profissional,
-                            organizada e 100% transparente. <br />
-                            <strong>Você ganha clareza para decidir e fôlego para executar.</strong>
-                        </p>
-                    </div>
+                        <div className="space-y-6 text-lg text-muted">
+                            <p>
+                                Nós somos a ponte entre a desordem burocrática e a clareza estratégica. Assumimos toda a sua rotina administrativa e financeira de forma profissional, organizada e 100% transparente.
+                            </p>
+                            <p className="p-6 bg-surface border-l-4 border-primary rounded-r-lg italic shadow-sm">
+                                <strong className="text-primary block mb-2 not-italic">Ganhe tempo, clareza e controle total.</strong>
+                                Pare de apagar incêndios no financeiro e comece a olhar para os indicadores que realmente importam para o seu lucro.
+                            </p>
+                            <p>
+                                Nossa implementação é rápida, segura e desenhada para não interromper o fluxo da sua empresa enquanto profissionalizamos sua operação.
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
     );
 };
 
-const styles = {
-    gridContainer: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-        gap: '4rem',
-        alignItems: 'center',
-    },
-    content: {
-        textAlign: 'left' as const,
-    },
-    heading: {
-        fontSize: '1rem',
-        textTransform: 'uppercase' as const,
-        letterSpacing: '0.05em',
-        color: 'var(--color-accent)',
-        marginBottom: '1rem',
-        fontWeight: 600,
-    },
-    subHeading: {
-        fontSize: 'clamp(2rem, 4vw, 3rem)',
-        fontWeight: 700,
-        marginBottom: '2rem',
-        lineHeight: 1.2,
-        color: '#1e293b',
-    },
-    text: {
-        fontSize: '1.125rem',
-        lineHeight: 1.7,
-        color: '#475569',
-        marginBottom: '1.5rem',
-    },
-    imageContainer: {
-        borderRadius: 'var(--radius-lg)',
-        overflow: 'hidden',
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        order: -1, // Ensure image is first on mobile if stacked, or left on desktop
-    },
-    image: {
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover' as const,
-        display: 'block',
-    }
-};

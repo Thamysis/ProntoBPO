@@ -1,149 +1,143 @@
 import { CheckCircle2, DollarSign, FileText, Users, BarChart3 } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+};
 
 export const DetailedServicesSection = () => {
     return (
-        <section id="detailed-services" className="section-padding" style={{ backgroundColor: '#f8fafc', paddingTop: '2rem' }}>
+        <section id="detailed-services" className="section-padding bg-background">
             <div className="container">
-                <div style={styles.header}>
-                    <h2 style={styles.heading}>O Que Entregamos</h2>
-                    <p style={styles.subHeading}>Detalhes do nosso escopo de trabalho</p>
+                <div className="text-center mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-sm font-bold tracking-wider text-primary uppercase mb-3"
+                    >
+                        O Que Entregamos
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-3xl md:text-4xl font-bold text-main"
+                    >
+                        Detalhes do nosso escopo de trabalho
+                    </motion.p>
                 </div>
 
-                <div style={styles.grid}>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
                     {/* Financeiro */}
-                    <div style={styles.card}>
-                        <div style={styles.iconHeader}>
-                            <DollarSign size={32} color="var(--color-primary)" />
-                            <h3 style={styles.cardTitle}>BPO Financeiro</h3>
-                        </div>
-                        <ul style={styles.list}>
-                            <ListItem>Gestão de contas a pagar e receber</ListItem>
-                            <ListItem>Conciliação bancária diária</ListItem>
-                            <ListItem>Emissão de notas fiscais e boletos</ListItem>
-                            <ListItem>Gestão de fluxo de caixa</ListItem>
-                            <ListItem>Relatórios financeiros mensais (DRE)</ListItem>
-                            <ListItem>Agendamento de pagamentos</ListItem>
-                        </ul>
-                    </div>
+                    <ServiceCard
+                        icon={<DollarSign size={28} />}
+                        title="BPO Financeiro"
+                        items={[
+                            "Controle de entradas e saídas",
+                            "Conciliação bancária documentada",
+                            "Gestão de contas e análise de taxas",
+                            "Categorização centralizada",
+                            "Emissão de notas e boletos",
+                            "Relatórios e Dashboards (KPIs)",
+                            "Sistemas de cobrança validados"
+                        ]}
+                        color="primary"
+                    />
 
                     {/* Administrativo */}
-                    <div style={styles.card}>
-                        <div style={styles.iconHeader}>
-                            <FileText size={32} color="var(--color-primary)" />
-                            <h3 style={styles.cardTitle}>Gestão Administrativa</h3>
-                        </div>
-                        <ul style={styles.list}>
-                            <ListItem>Organização de documentos digitais</ListItem>
-                            <ListItem>Gestão de contratos e fornecedores</ListItem>
-                            <ListItem>Controle de certidões negativas</ListItem>
-                            <ListItem>Compras e cotações de insumos</ListItem>
-                            <ListItem>Suporte em rotinas burocráticas</ListItem>
-                        </ul>
-                    </div>
+                    <ServiceCard
+                        icon={<FileText size={28} />}
+                        title="Administrativo Processual"
+                        items={[
+                            "Elaboração de contratos (PJ)",
+                            "Formalização e envio em até 1h",
+                            "Criação de modelos de documentos",
+                            "Mapeamento de processos",
+                            "Gestão de arquivos corporativos",
+                            "Configuração (Monday/ClickUp/Trello)"
+                        ]}
+                        color="secondary"
+                    />
 
-                    {/* RH / Pessoal */}
-                    <div style={styles.card}>
-                        <div style={styles.iconHeader}>
-                            <Users size={32} color="var(--color-primary)" />
-                            <h3 style={styles.cardTitle}>Departamento Pessoal</h3>
-                        </div>
-                        <ul style={styles.list}>
-                            <ListItem>Intermediação com a contabilidade</ListItem>
-                            <ListItem>Controle de ponto e banco de horas</ListItem>
-                            <ListItem>Gestão de benefícios (VT, VR, Planos)</ListItem>
-                            <ListItem>Onboarding de novos colaboradores</ListItem>
-                            <ListItem>Organização de prontuários</ListItem>
-                        </ul>
-                    </div>
+                    {/* RH / NPS */}
+                    <ServiceCard
+                        icon={<Users size={28} />}
+                        title="Gestão de Pessoas"
+                        items={[
+                            "Auxílio em contratação e demissão",
+                            "Organização de documentos de RH",
+                            "Implantação de pesquisas de NPS",
+                            "Gestão do clima organizacional",
+                            "Processos de Onboarding"
+                        ]}
+                        color="accent"
+                    />
 
-                    {/* Estratégico/Tech */}
-                    <div style={styles.card}>
-                        <div style={styles.iconHeader}>
-                            <BarChart3 size={32} color="var(--color-primary)" />
-                            <h3 style={styles.cardTitle}>Inteligência & Tech</h3>
-                        </div>
-                        <ul style={styles.list}>
-                            <ListItem>Implantação de sistema financeiro</ListItem>
-                            <ListItem>Automação de processos repetitivos</ListItem>
-                            <ListItem>Dashboards de indicadores (KPIs)</ListItem>
-                            <ListItem>Análise de redução de custos</ListItem>
-                            <ListItem>Planejamento orçamentário anual</ListItem>
-                        </ul>
-                    </div>
-                </div>
+                    {/* Estratégico */}
+                    <ServiceCard
+                        icon={<BarChart3 size={28} />}
+                        title="Interface Estratégica"
+                        items={[
+                            "Conexão direta com contabilidade",
+                            "Relatórios financeiros objetivos",
+                            "Análise de redução de custos",
+                            "Controle de receita por canal",
+                            "Planejamento orçamentário"
+                        ]}
+                        color="primary"
+                    />
+                </motion.div>
             </div>
         </section>
     );
 };
 
-const ListItem = ({ children }: { children: React.ReactNode }) => (
-    <li style={styles.listItem}>
-        <CheckCircle2 size={16} color="var(--color-accent)" style={{ minWidth: '16px', marginTop: '4px' }} />
-        <span>{children}</span>
-    </li>
-);
+const ServiceCard = ({ icon, title, items, color }: { icon: React.ReactNode, title: string, items: string[], color: 'primary' | 'secondary' | 'accent' }) => {
+    const colorClasses = {
+        primary: { bg: 'bg-primary/10', text: 'text-primary' },
+        secondary: { bg: 'bg-secondary/10', text: 'text-secondary' },
+        accent: { bg: 'bg-accent/10', text: 'text-accent' }
+    };
 
-const styles = {
-    header: {
-        textAlign: 'center' as const,
-        marginBottom: '1.5rem',
-    },
-    heading: {
-        fontSize: '1rem',
-        textTransform: 'uppercase' as const,
-        letterSpacing: '0.05em',
-        color: 'var(--color-primary)',
-        fontWeight: 600,
-        marginBottom: '0.5rem',
-    },
-    subHeading: {
-        fontSize: '2rem',
-        fontWeight: 700,
-        color: 'var(--color-text-main)',
-    },
-    grid: {
-        display: 'flex',
-        flexWrap: 'wrap' as const,
-        justifyContent: 'center',
-        gap: '2rem',
-    },
-    card: {
-        backgroundColor: 'white',
-        borderRadius: 'var(--radius-lg)',
-        padding: '2rem',
-        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        border: '1px solid #e2e8f0',
-        transition: 'transform 0.2s ease',
-        flex: '1 1 450px', // Increased basis to force 2 per line on standard screens
-        width: '100%',
-    },
-    iconHeader: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '1rem',
-        marginBottom: '1.5rem',
-        borderBottom: '2px solid #f1f5f9',
-        paddingBottom: '1rem',
-    },
-    cardTitle: {
-        fontSize: '1.25rem',
-        fontWeight: 700,
-        color: 'var(--color-text-main)',
-    },
-    list: {
-        listStyle: 'none',
-        padding: 0,
-        margin: 0,
-        display: 'flex',
-        flexDirection: 'column' as const,
-        gap: '0.75rem',
-    },
-    listItem: {
-        display: 'flex',
-        gap: '0.75rem',
-        alignItems: 'flex-start',
-        color: 'var(--color-text-muted)',
-        fontSize: '0.95rem',
-        lineHeight: 1.5,
-    }
+    return (
+        <motion.div
+            variants={itemVariants}
+            className="bg-white rounded-2xl p-6 border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        >
+            <div className={`w-12 h-12 ${colorClasses[color].bg} ${colorClasses[color].text} rounded-lg flex items-center justify-center mb-6`}>
+                {icon}
+            </div>
+            <h3 className="text-xl font-bold text-main mb-6 pb-4 border-b border-slate-100">
+                {title}
+            </h3>
+            <ul className="space-y-3">
+                {items.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2.5 text-muted text-sm">
+                        <CheckCircle2 size={16} className={`shrink-0 mt-0.5 ${colorClasses[color].text}`} />
+                        <span>{item}</span>
+                    </li>
+                ))}
+            </ul>
+        </motion.div>
+    );
 };
+
